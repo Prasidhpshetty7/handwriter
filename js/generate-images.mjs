@@ -63,9 +63,8 @@ export async function generateImages() {
   const paperContentEl = document.querySelector('.page-a .paper-content');
   const scrollHeight = paperContentEl.scrollHeight;
   
-  // Use a slightly larger height to fill pages better
-  // 514 was leaving too much empty space at bottom
-  const clientHeight = 520;
+  // Increased to fill pages better - was 514, now 540 to use more space
+  const clientHeight = 540;
 
   const totalPages = Math.ceil(scrollHeight / clientHeight);
 
