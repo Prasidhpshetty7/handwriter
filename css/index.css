@@ -1,0 +1,640 @@
+/* CSS Variables */
+html,
+body {
+  margin: 0px;
+}
+
+body:not(.dark) {
+  --background-primary: #ffffff;
+  --font-color-primary: #1a1a1a;
+  --elevation-background: #f5f5f5;
+  --link-color: #7c3aed;
+  --font-family-primary: 'Inter', 'Segoe UI', sans-serif;
+  --handwriting-font: 'Homemade Apple', cursive;
+  --primary-color: #7c3aed;
+  --ink-color: #000f55;
+  --label-color: #4a4a4a;
+  --field-borders: #d1d5db;
+  --primary-button-bg: #7c3aed;
+  --primary-button-color: #ffffff;
+  --font-color-delete: #dc2626;
+  --delete-button-borders: #dc2626;
+
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  --background-primary: #000000;
+  --font-color-primary: #e0e0e0;
+  --elevation-background: #0a0a0a;
+  --link-color: #a78bfa;
+  --font-family-primary: 'Inter', 'Segoe UI', sans-serif;
+  --handwriting-font: 'Homemade Apple', cursive;
+  --primary-color: #a78bfa;
+  --ink-color: #000f55;
+  --label-color: #b0b0b0;
+  --field-borders: #1a1a1a;
+  --primary-button-bg: #a78bfa;
+  --primary-button-color: #000000;
+  --font-color-delete: #ef4444;
+  --delete-button-borders: #ef4444;
+
+  width: 100%;
+  overflow-x: hidden;
+}
+body.dark {
+  --background-primary: #000000;
+  --font-color-primary: #e0e0e0;
+  --elevation-background: #0a0a0a;
+  --link-color: #a78bfa;
+  --label-color: #b0b0b0;
+  --field-borders: #1a1a1a;
+  --primary-button-bg: #a78bfa;
+  --primary-button-color: #000000;
+  --delete-button-borders: #ef4444;
+  --font-color-delete: #ef4444;
+}
+@font-face {
+  font-family: 'Hindi_Font';
+  src: url(../fonts/Hindi_Type.ttf);
+}
+
+/* Default CSS Changes */
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--background-primary);
+  color: var(--font-color-primary);
+  padding: 80px 100px 40px 100px;
+  font-size: 1.05rem;
+  font-family: var(--font-family-primary);
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+main {
+  max-width: 100%;
+  margin: 0 auto;
+}
+section {
+  padding: 20px 0px;
+}
+button {
+  border: none;
+  background-color: var(--elevation-background);
+  color: var(--font-color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--font-color-primary);
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--font-color-primary);
+  margin-bottom: 20px;
+}
+
+label {
+  color: var(--label-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+label .status {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+label.block {
+  display: block;
+  padding-bottom: 8px;
+}
+
+select {
+  background: url('../images/dropdown.svg') no-repeat;
+  background-position: calc(100% - 14px) center;
+  border: none;
+  color: #333;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: block;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+option {
+  color: #333;
+}
+
+body.dark select {
+  background: url('../images/dropdown-white.svg') no-repeat;
+  background-position: calc(100% - 14px) center;
+}
+
+input {
+  padding: 8px 13px;
+  border-radius: 4px;
+  border: 1px solid var(--elevation-background);
+  color: var(--font-color-primary);
+  background-color: transparent;
+  display: block;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield !important;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+/* global classes */
+ul.info-ul {
+  padding-left: 20px;
+}
+
+ul.info-ul > li {
+  padding: 5px 5px;
+}
+
+.shadow {
+  box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2);
+}
+.display-flex {
+  display: flex;
+}
+.display-flex.padded-flex > div {
+  padding: 0px 10px;
+}
+.display-flex.padded-flex > div:first-child {
+  padding-left: unset;
+}
+.flex-1 {
+  flex: 1;
+}
+.padding-around {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.padding-up-down {
+  padding-top: 6px;
+  padding-bottom: 7px;
+}
+
+/* Other Styles */
+.output-grid {
+  align-items: flex-start;
+}
+.generate-image-section {
+  padding: 10px 10px;
+  font-size: 1.2rem;
+}
+.generate-image-button {
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-color);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+}
+
+.generate-image-button:hover {
+  opacity: 0.9;
+}
+.github-corner {
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+  right: 0px;
+}
+body.dark .github-corner {
+  filter: invert(100%);
+}
+.imp-button {
+  color: var(--font-color-primary);
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  font-weight: 500;
+}
+
+.imp-button:hover {
+  background-color: var(--primary-color);
+  color: var(--primary-button-color);
+}
+.delete-button {
+  color: var(--font-color-delete);
+  border: 1px solid var(--delete-button-borders);
+  background-color: transparent;
+  font-weight: 500;
+}
+
+.delete-button:hover {
+  background-color: var(--font-color-delete);
+  color: var(--background-primary);
+}
+.customization-col {
+  padding: 0px 50px !important;
+}
+
+.left-margin-and-content {
+  min-height: calc(100% - 50px);
+}
+
+.sponsor-name-section {
+  padding: 50px 0px;
+}
+.sponsor-container {
+  display: inline-block;
+  color: var(--font-color-primary);
+}
+.sponsor-title {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.page-a {
+  width: 400px;
+  height: calc(11.7 * 400px / 8.3); /* A4 Ratio: 210x297mm */
+  background: #fff;
+  border: 1px solid var(--elevation-background);
+  font-size: 10pt;
+  position: relative;
+  top: 0px;
+  font-family: var(--handwriting-font);
+  color: var(--ink-color);
+  line-height: 1.5em;
+  overflow-y: auto;
+  scrollbar-color: transparent;
+  scrollbar-width: thin;
+  transition: all 0.4s ease;
+}
+
+/* Page Size Variations - Official Standard Dimensions */
+/* Base: A4 = 210x297mm = 8.27x11.69" (400px width reference) */
+
+.page-a.small-book {
+  /* 5x8 inches = 127x203.2mm - Fiction Novel Size */
+  width: 241px !important;  /* (127/210) * 400 */
+  height: 387px !important; /* (203.2/297) * 565 */
+  font-size: 8pt !important;
+  line-height: 1.45em !important;
+}
+
+.page-a.digest {
+  /* 5.5x8.5 inches = 139.7x215.9mm - Digest/Magazine Size */
+  width: 266px !important;  /* (139.7/210) * 400 */
+  height: 411px !important; /* (215.9/297) * 565 */
+  font-size: 8.5pt !important;
+  line-height: 1.45em !important;
+}
+
+.page-a.trade {
+  /* 6x9 inches = 152.4x228.6mm - Trade Paperback */
+  width: 290px !important;  /* (152.4/210) * 400 */
+  height: 435px !important; /* (228.6/297) * 565 */
+  font-size: 9pt !important;
+  line-height: 1.5em !important;
+}
+
+.page-a.letter {
+  /* 8.5x11 inches = 215.9x279.4mm - US Letter Standard */
+  width: 411px !important;  /* (215.9/210) * 400 */
+  height: 532px !important; /* (279.4/297) * 565 */
+  font-size: 10.5pt !important;
+  line-height: 1.5em !important;
+}
+
+.page-a.legal {
+  /* 8.5x14 inches = 215.9x355.6mm - US Legal */
+  width: 411px !important;  /* (215.9/210) * 400 */
+  height: 677px !important; /* (355.6/297) * 565 */
+  font-size: 10.5pt !important;
+  line-height: 1.5em !important;
+}
+
+.page-a.tabloid {
+  /* 11x17 inches = 279.4x431.8mm - Tabloid/Ledger */
+  width: 532px !important;  /* (279.4/210) * 400 */
+  height: 822px !important; /* (431.8/297) * 565 */
+  font-size: 12pt !important;
+  line-height: 1.6em !important;
+}
+
+/* Adjust line spacing for lined paper background */
+.page-a.small-book.lines .paper-content {
+  background-size: 100% 1.45em !important;
+}
+
+.page-a.digest.lines .paper-content {
+  background-size: 100% 1.45em !important;
+}
+
+.page-a.trade.lines .paper-content {
+  background-size: 100% 1.5em !important;
+}
+
+.page-a.letter.lines .paper-content {
+  background-size: 100% 1.5em !important;
+}
+
+.page-a.legal.lines .paper-content {
+  background-size: 100% 1.5em !important;
+}
+
+.page-a.tabloid.lines .paper-content {
+  background-size: 100% 1.6em !important;
+}
+.paper-content {
+  margin: 10px;
+  width: 100%;
+}
+.page-a.lines .paper-content {
+  background-image: linear-gradient(#999 0.05em, transparent 0.1em);
+  background-color: unset !important;
+  background-size: 100% 1.5em;
+}
+
+.margined .paper-content {
+  padding: 5px;
+  margin: 0px;
+  padding-left: 55px;
+}
+
+.left-margin,
+.top-margin {
+  display: none;
+}
+
+.margined .top-margin {
+  height: 50px;
+  border-bottom: 2px solid pink;
+  width: 100%;
+  display: block;
+  overflow-y: auto;
+}
+
+.margined .left-margin {
+  width: 50px;
+  height: calc(100%);
+  display: inline-block;
+  border-right: 2px solid pink;
+  top: 0px;
+  padding-top: 50px;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.overlay.shadows {
+  display: block;
+  /* background-image: linear-gradient(10deg, #000a, #0001); */
+}
+
+/* OUTPUT */
+.output {
+  width: 100%;
+  padding: 30px;
+  white-space: nowrap;
+  overflow-x: auto;
+  border: 1px solid var(--elevation-background);
+}
+.output .close-button {
+  position: absolute;
+  right: -3px;
+  top: -11px;
+  border-radius: 100%;
+  padding: 4px 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 15pt;
+  font-weight: bold;
+}
+.download-image-button {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  background-color: var(--primary-button-bg);
+  color: var(--primary-button-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border-radius: 6px;
+}
+
+.download-image-button:hover {
+  opacity: 0.9;
+}
+#download-as-pdf-button {
+  display: none;
+}
+#download-as-pdf-button.show {
+  display: inline-block;
+}
+#delete-all-button {
+  display: none;
+}
+#delete-all-button.show {
+  display: inline-block;
+}
+.output img {
+  width: 300px;
+  margin: 0px 10px;
+}
+
+#faq p {
+  overflow-wrap: break-word;
+  overflow: hidden;
+  width: 100%;
+}
+
+#covid-donations ul li {
+  padding: 5px 0px;
+}
+
+.donations-list {
+  padding: 58px 0px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 80px 10px 40px 10px;
+  }
+  h1 {
+    margin-top: 20px;
+    font-size: 3rem;
+  }
+  .padding-around {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .display-flex.responsive-flex {
+    flex-direction: column;
+  }
+  .customization-col {
+    padding: 100px 5px !important;
+  }
+  .page-container {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .page-container-super {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .output img {
+    width: 200px;
+    margin: 0px 10px;
+  }
+
+  .project-contributors {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .contributor-profile {
+    width: 7.5em;
+    height: 150px;
+  }
+
+  .contributor-username {
+    font-size: 9pt;
+  }
+}
+
+fieldset {
+  padding: 24px 28px;
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+  margin-top: 28px;
+  background-color: var(--elevation-background);
+  transition: all 0.3s ease;
+}
+
+fieldset:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
+}
+
+legend {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  color: var(--primary-color);
+  background-color: var(--background-primary);
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+
+select,
+input {
+  width: 100%;
+  border: 1.5px solid var(--field-borders);
+  padding: 11px 13px;
+  padding-right: 30px;
+  color: var(--font-color-primary);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+select:focus,
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+input[type='file']::-webkit-file-upload-button {
+  display: none;
+}
+input[type='file']::before {
+  content: 'Choose File';
+  display: inline-block;
+  background-color: var(--background-primary);
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.postfix-input {
+  position: relative;
+}
+.postfix-input label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.postfix-input::after {
+  content: attr(data-postfix);
+  position: absolute;
+  right: 25px;
+  bottom: 12px;
+  font-size: 12px;
+}
+
+.upload-handwriting-container {
+  margin-top: -10px;
+}
+
+.experimental {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.category-grid {
+  display: grid;
+  grid-gap: 18px;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.fade-in-dark,
+.fade-in-light {
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .category-grid {
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+  }
+}
+
+/*To generate margin between download as pdf and delete button in small screens*/
+@media (max-width: 430px) {
+  .delete-button {
+    margin-top: 10px;
+  }
+}

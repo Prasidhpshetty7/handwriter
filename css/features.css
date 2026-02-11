@@ -1,0 +1,256 @@
+/* DARK MODE SWITCH */
+.dark-mode-toggle {
+  cursor: pointer;
+  position: absolute;
+  top: 100px;
+  right: 150px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+body:not(.dark) .dark-mode-toggle {
+  border-color: #000000;
+}
+body:not(.dark) .dark-mode-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+body:not(.user-is-tabbing) .dark-mode-toggle:focus {
+  outline: none;
+}
+.dark-mode-toggle .moon {
+  padding: 0;
+}
+.dark-mode-toggle .sun {
+  padding: 0;
+}
+body .dark-mode-toggle .moon {
+  display: none;
+}
+body .dark-mode-toggle .sun {
+  display: inline-block;
+}
+body.dark .dark-mode-toggle .moon {
+  display: inline-block;
+}
+body.dark .dark-mode-toggle .sun {
+  display: none;
+}
+
+/* Switch - Modern Toggle Design */
+.switch-toggle {
+  position: relative;
+  display: inline-block;
+  margin-top: 6px;
+  cursor: pointer;
+  width: 54px;
+  height: 28px;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #1a1a2e, #0f0f23);
+  border: 2px solid #3d3d5c;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch-toggle:hover {
+  border-color: #5a5a7a;
+}
+
+.switch-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.switch-toggle div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 2px;
+  left: 3px;
+  background: linear-gradient(145deg, #4a4a6a, #3a3a5a);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch-toggle input:checked + div {
+  left: 27px;
+  background: linear-gradient(145deg, #c4b5fd, #a78bfa);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.6),
+              0 2px 6px rgba(0,0,0,0.4);
+}
+
+.switch-toggle input:checked ~ div {
+  left: 27px;
+}
+
+.switch-toggle:has(input:checked) {
+  background: linear-gradient(145deg, #2d2550, #1f1a3d);
+  border-color: #a78bfa;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3),
+              0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+.switch-toggle input:focus + div {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
+}
+
+.switch-toggle.outer div {
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: 3px;
+}
+
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    right: 10px;
+  }
+}
+
+/* POPUP, DRAW AND PDF-PREVIEW  */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  z-index: 999999;
+  color: #ddd;
+  padding: 20px;
+  display: none;
+  overflow-y: auto;
+}
+
+.popup-container.show {
+  display: block;
+}
+
+.popup-container .close-button {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  padding: 20px 30px;
+  cursor: pointer;
+  color: #ddd;
+  background-color: transparent;
+  border: none;
+  font-size: 50pt;
+  font-weight: bold;
+}
+
+.popup-container .close-button:hover {
+  color: #fff;
+  transition: color 0.5s ease;
+}
+
+#diagram-canvas {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="28" font-size="28">✍️</text></svg>') 4 28, crosshair;
+}
+
+.tool-btn {
+  padding: 8px 4px;
+  font-size: 0.85rem;
+  background: #2d2d44;
+  color: #e0e0e0;
+  border: 2px solid #3d3d5c;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+  background: #3d3d5c;
+  border-color: #a78bfa;
+}
+
+.tool-btn.active {
+  background: #a78bfa;
+  color: #0f0f23;
+  border-color: #a78bfa;
+  font-weight: 600;
+}
+
+.drawing-tools-panel input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #2d2d44;
+  border-radius: 3px;
+  outline: none;
+}
+
+.drawing-tools-panel input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #a78bfa;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.drawing-tools-panel input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #a78bfa;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.drawing-tools-panel button {
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.drawing-tools-panel button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.contributor-profile {
+  display: inline-block;
+  margin: 10px 5px;
+  text-align: center;
+  background-color: var(--elevation-background);
+  color: var(--font-color-primary);
+  padding: 10px;
+  width: 130px;
+  overflow: hidden;
+  border-radius: 4px;
+  height: 170px;
+  box-shadow: 4px 3px 16px -3px #0009;
+}
+
+img.contributor-avatar {
+  width: 100%;
+}
+
+.contributor-profile a {
+  text-decoration: none;
+  color: var(--font-color-primary);
+  font-weight: bold;
+  display: block;
+  font-size: 10pt;
+}
+
+.contributor-username {
+  margin-top: 7px;
+}

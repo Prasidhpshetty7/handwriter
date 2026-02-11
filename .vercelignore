@@ -1,0 +1,10 @@
+node_modules
+.git
+.github
+tests
+cypress.json
+.eslintrc.js
+.eslintignore
+.prettierrc
+.prettierignore
+package-lock.json
