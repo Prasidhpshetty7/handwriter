@@ -117,6 +117,149 @@ body.dark .dark-mode-toggle .sun {
 @media (max-width: 768px) {
   .dark-mode-toggle {
     right: 10px;
+    top: 70px;
+  }
+  
+  /* Drawing canvas mobile optimization */
+  .popup-container {
+    padding: 10px;
+  }
+  
+  .popup-container .close-button {
+    padding: 15px 20px;
+    font-size: 35pt;
+    top: 5px;
+    right: 5px;
+  }
+  
+  #diagram-canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    touch-action: none; /* Better touch handling */
+  }
+  
+  .drawing-tools-panel {
+    width: 100% !important;
+    min-width: unset !important;
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  .drawing-tools-panel h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  .tool-btn {
+    padding: 10px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .drawing-tools-panel button {
+    padding: 12px;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+  
+  .drawing-tools-panel input[type="color"] {
+    height: 45px;
+  }
+  
+  .drawing-tools-panel input[type="range"] {
+    height: 8px;
+  }
+  
+  .drawing-tools-panel input[type="range"]::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .drawing-tools-panel input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* Switch toggle mobile */
+  .switch-toggle {
+    width: 50px;
+    height: 26px;
+  }
+  
+  .switch-toggle div {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .switch-toggle input:checked + div {
+    left: 24px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .dark-mode-toggle {
+    width: 45px;
+    height: 45px;
+    top: 60px;
+  }
+  
+  .dark-mode-toggle img {
+    width: 28px !important;
+  }
+  
+  .popup-container .close-button {
+    font-size: 30pt;
+    padding: 10px 15px;
+  }
+  
+  .drawing-tools-panel {
+    padding: 12px;
+  }
+  
+  .tool-btn {
+    padding: 8px 4px;
+    font-size: 0.75rem;
+  }
+  
+  .drawing-tools-panel h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .dark-mode-toggle {
+    top: 50px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .popup-container {
+    padding: 5px;
+  }
+  
+  .popup-container .close-button {
+    padding: 10px 15px;
+    font-size: 28pt;
+  }
+  
+  .draw-container h2 {
+    margin: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .draw-container .display-flex.responsive-flex {
+    padding: 0 10px 10px 10px;
+  }
+  
+  #diagram-canvas {
+    max-height: 280px;
+  }
+  
+  .drawing-tools-panel {
+    padding: 10px;
   }
 }
 

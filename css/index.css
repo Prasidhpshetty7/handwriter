@@ -4,6 +4,23 @@ body {
   margin: 0px;
 }
 
+/* Mobile touch optimization */
+* {
+  -webkit-tap-highlight-color: rgba(167, 139, 250, 0.2);
+  -webkit-touch-callout: none;
+}
+
+button, a, input, select {
+  -webkit-tap-highlight-color: rgba(167, 139, 250, 0.3);
+}
+
+/* Smooth scrolling for all devices */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body:not(.dark) {
   --background-primary: #ffffff;
   --font-color-primary: #1a1a1a;
@@ -478,25 +495,36 @@ body.dark .github-corner {
 
 @media (max-width: 768px) {
   body {
-    padding: 80px 10px 40px 10px;
+    padding: 60px 15px 40px 15px;
   }
+  
   h1 {
     margin-top: 20px;
-    font-size: 3rem;
+    font-size: 2.2rem !important;
   }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
   .padding-around {
     padding-left: 5px;
     padding-right: 5px;
   }
+  
   .display-flex.responsive-flex {
     flex-direction: column;
   }
+  
   .customization-col {
-    padding: 100px 5px !important;
+    padding: 20px 5px !important;
+    margin-top: 30px;
   }
+  
   .page-container {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .page-container-super {
@@ -505,8 +533,9 @@ body.dark .github-corner {
   }
 
   .output img {
-    width: 200px;
-    margin: 0px 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0px auto 20px auto;
   }
 
   .project-contributors {
@@ -523,6 +552,231 @@ body.dark .github-corner {
 
   .contributor-username {
     font-size: 9pt;
+  }
+  
+  /* Mobile-specific adjustments */
+  .page-a {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  fieldset {
+    padding: 16px 18px;
+    margin-top: 20px;
+  }
+  
+  legend {
+    font-size: 0.9rem;
+    padding: 3px 10px;
+  }
+  
+  .category-grid {
+    grid-gap: 14px;
+  }
+  
+  select, input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 10px 12px;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  .generate-image-button {
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+  
+  .imp-button, .delete-button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+  }
+  
+  .github-corner {
+    display: none; /* Hide on mobile for better UX */
+  }
+  
+  /* Drawing tool mobile adjustments */
+  .draw-container .display-flex.responsive-flex {
+    flex-direction: column;
+  }
+  
+  .draw-container h2 {
+    margin: 15px 15px 15px 15px;
+    font-size: 1.3rem;
+  }
+  
+  .draw-container .display-flex.responsive-flex {
+    padding: 0 15px 15px 15px;
+  }
+  
+  #diagram-canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    aspect-ratio: 850 / 550;
+  }
+  
+  .drawing-tools-panel {
+    width: 100% !important;
+    min-width: unset !important;
+    margin-top: 20px;
+  }
+  
+  .tool-btn {
+    padding: 10px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .popup-container .close-button {
+    padding: 15px 20px;
+    font-size: 35pt;
+  }
+  
+  /* Section styling for mobile */
+  section {
+    padding: 15px 0px;
+  }
+  
+  #how-to-add-handwriting,
+  #contribute,
+  #faq {
+    padding: 20px !important;
+    margin: 15px 0 !important;
+  }
+  
+  footer {
+    padding: 30px 0px 10px 0px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet landscape and small desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    padding: 70px 40px 40px 40px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .customization-col {
+    padding: 0px 30px !important;
+  }
+  
+  .page-a {
+    width: 350px;
+  }
+  
+  fieldset {
+    padding: 20px 24px;
+  }
+  
+  .category-grid {
+    grid-gap: 16px;
+  }
+}
+
+/* Small phones (portrait) */
+@media (max-width: 480px) {
+  body {
+    padding: 50px 10px 30px 10px;
+  }
+  
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  .page-a {
+    max-width: 100%;
+    font-size: 9pt;
+  }
+  
+  fieldset {
+    padding: 14px 16px;
+  }
+  
+  .category-grid {
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    grid-gap: 12px;
+  }
+  
+  .tool-btn {
+    padding: 8px 4px;
+    font-size: 0.75rem;
+  }
+  
+  .drawing-tools-panel h3 {
+    font-size: 1rem;
+  }
+  
+  .output {
+    padding: 15px;
+  }
+  
+  .dark-mode-toggle {
+    width: 45px;
+    height: 45px;
+    top: 80px;
+    right: 10px;
+  }
+  
+  .dark-mode-toggle img {
+    width: 28px !important;
+  }
+}
+
+/* Landscape mode for phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: 40px 20px 30px 20px;
+  }
+  
+  h1 {
+    font-size: 1.8rem !important;
+    margin-top: 10px;
+  }
+  
+  .dark-mode-toggle {
+    top: 50px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .popup-container {
+    padding: 10px;
+  }
+  
+  .draw-container h2 {
+    margin: 10px;
+    font-size: 1.2rem;
+  }
+  
+  #diagram-canvas {
+    max-height: 300px;
+  }
+}
+
+/* Large tablets and iPad Pro */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  body {
+    padding: 80px 60px 40px 60px;
+  }
+  
+  .customization-col {
+    padding: 0px 40px !important;
   }
 }
 

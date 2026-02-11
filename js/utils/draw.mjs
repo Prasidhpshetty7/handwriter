@@ -25,12 +25,36 @@ ctx.lineJoin = 'round';
 // Set initial cursor
 canvas.style.cursor = 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 32 32\'><text x=\'2\' y=\'28\' font-size=\'24\'>✍️</text></svg>") 4 28, auto';
 
+// Mobile canvas scaling
+function adjustCanvasForMobile() {
+  const container = canvas.parentElement;
+  const containerWidth = container.clientWidth;
+  
+  // Only adjust on mobile/tablet
+  if (window.innerWidth <= 768) {
+    const scale = Math.min(1, (containerWidth - 40) / 850);
+    canvas.style.width = (850 * scale) + 'px';
+    canvas.style.height = (550 * scale) + 'px';
+  } else {
+    canvas.style.width = '850px';
+    canvas.style.height = '550px';
+  }
+}
+
+// Adjust on load and resize
+adjustCanvasForMobile();
+window.addEventListener('resize', adjustCanvasForMobile);
+window.addEventListener('orientationchange', adjustCanvasForMobile);
+
 // Get canvas position relative to viewport
 function getCanvasCoordinates(e) {
   const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  
   return {
-    x: e.clientX - rect.left,
-    y: e.clientY - rect.top
+    x: (e.clientX - rect.left) * scaleX,
+    y: (e.clientY - rect.top) * scaleY
   };
 }
 
@@ -96,6 +120,38 @@ canvas.addEventListener('mouseup', () => {
 });
 
 canvas.addEventListener('mouseleave', () => {
+  isDrawing = false;
+});
+
+// Touch events for mobile support
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const mouseEvent = new MouseEvent('mousedown', {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  canvas.dispatchEvent(mouseEvent);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const mouseEvent = new MouseEvent('mousemove', {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  canvas.dispatchEvent(mouseEvent);
+});
+
+canvas.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  const mouseEvent = new MouseEvent('mouseup', {});
+  canvas.dispatchEvent(mouseEvent);
+});
+
+canvas.addEventListener('touchcancel', (e) => {
+  e.preventDefault();
   isDrawing = false;
 });
 
