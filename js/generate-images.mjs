@@ -62,19 +62,7 @@ export async function generateImages() {
 
   const paperContentEl = document.querySelector('.page-a .paper-content');
   const scrollHeight = paperContentEl.scrollHeight;
-  
-  // Calculate the available content height dynamically
-  // This accounts for margins and padding
-  const pageElement = document.querySelector('.page-a');
-  const topMarginEl = document.querySelector('.page-a .top-margin');
-  const leftMarginEl = document.querySelector('.page-a .left-margin');
-  
-  // Get actual heights
-  const topMarginHeight = topMarginEl ? topMarginEl.offsetHeight : 0;
-  const totalPageHeight = pageElement.offsetHeight;
-  
-  // Available height for content = total page height - top margin - bottom padding
-  const clientHeight = totalPageHeight - topMarginHeight - 10;
+  const clientHeight = 514; // Standard A4 content height
 
   const totalPages = Math.ceil(scrollHeight / clientHeight);
 
@@ -110,9 +98,6 @@ export async function generateImages() {
       await convertDIVToImage();
       paperContentEl.innerHTML = initialPaperContent;
     }
-    
-    // Restore original content
-    paperContentEl.innerHTML = initialPaperContent;
   } else {
     // single image
     await convertDIVToImage();
