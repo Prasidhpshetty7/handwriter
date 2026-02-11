@@ -1,6 +1,6 @@
 <p align="center">
 <img alt="Text-to-handwriting title image" src="https://res.cloudinary.com/saurabhdaware/image/upload/w_400/v1586015094/saurabh2019/text-to-handwriting-title.png" /> 
-<br/><b><a href="https://prasidhshetty7.github.io/handwriter/">https://prasidhshetty7.github.io/handwriter/</a></b><br/><br/><img alt="NPM Version" src="https://img.shields.io/github/package-json/v/prasidhshetty7/handwriter?style=for-the-badge&labelColor=black&logo=npm&color=darkred" /> <a href="#contributing"><img alt="Contributions Welcome" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge&labelColor=black&logo=github"></a> <br/><a href="https://github.com/prasidhshetty7/handwriter/blob/master/LICENSE"> <img alt="GitHub License MIT" src="https://img.shields.io/github/license/prasidhshetty7/handwriter?style=for-the-badge&labelColor=black&logo=github"> </a><a href="https://twitter.com/shettyprasidh7"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/shettyprasidh7?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@shettyprasidh7"></a><br/><br/> A tool that converts text to an image that looks like handwriting😛
+<br/><b><a href="https://prasidhpshetty7.github.io/handwrriter/">https://prasidhpshetty7.github.io/handwrriter/</a></b><br/><br/><img alt="NPM Version" src="https://img.shields.io/github/package-json/v/prasidhpshetty7/handwrriter?style=for-the-badge&labelColor=black&logo=npm&color=darkred" /> <a href="#contributing"><img alt="Contributions Welcome" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge&labelColor=black&logo=github"></a> <br/><a href="https://github.com/prasidhpshetty7/handwrriter/blob/master/LICENSE"> <img alt="GitHub License MIT" src="https://img.shields.io/github/license/prasidhpshetty7/handwrriter?style=for-the-badge&labelColor=black&logo=github"> </a><a href="https://twitter.com/shettyprasidh7"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/shettyprasidh7?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@shettyprasidh7"></a><br/><br/> A tool that converts text to an image that looks like handwriting😛
 
 </p>
 
@@ -11,7 +11,7 @@
 ## 🚀 Deployment
 
 ### Deploy to Vercel
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/prasidhshetty7/handwriter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/prasidhpshetty7/handwrriter)
 
 ### Deploy to GitHub Pages
 1. Fork this repository

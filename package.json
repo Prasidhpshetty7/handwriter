@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prasidhshetty7/handwriter.git"
+    "url": "git+https://github.com/prasidhpshetty7/handwrriter.git"
   },
   "keywords": [],
   "author": "Prasidh P Shetty (https://prasidhshetty.in/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/prasidhshetty7/handwriter/issues"
+    "url": "https://github.com/prasidhpshetty7/handwrriter/issues"
   },
-  "homepage": "https://github.com/prasidhshetty7/handwriter#readme",
+  "homepage": "https://github.com/prasidhpshetty7/handwrriter#readme",
   "devDependencies": {
     "cypress": "^4.4.1",
     "eslint": "^7.0.0",
