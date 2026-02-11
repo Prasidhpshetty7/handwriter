@@ -24,7 +24,8 @@ body:not(.dark) {
   overflow-x: hidden;
 }
 
-body {
+body,
+body.dark {
   --background-primary: #000000;
   --font-color-primary: #e0e0e0;
   --elevation-background: #0a0a0a;
@@ -42,18 +43,6 @@ body {
 
   width: 100%;
   overflow-x: hidden;
-}
-body.dark {
-  --background-primary: #000000;
-  --font-color-primary: #e0e0e0;
-  --elevation-background: #0a0a0a;
-  --link-color: #a78bfa;
-  --label-color: #b0b0b0;
-  --field-borders: #1a1a1a;
-  --primary-button-bg: #a78bfa;
-  --primary-button-color: #000000;
-  --delete-button-borders: #ef4444;
-  --font-color-delete: #ef4444;
 }
 @font-face {
   font-family: 'Hindi_Font';
