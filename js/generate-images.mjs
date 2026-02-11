@@ -31,7 +31,14 @@ async function convertDIVToImage() {
     scrollX: 0,
     scrollY: -window.scrollY,
     scale: document.querySelector('#resolution').value,
-    useCORS: true
+    useCORS: true,
+    allowTaint: true,
+    backgroundColor: '#ffffff',
+    logging: false,
+    width: pageEl.offsetWidth,
+    height: pageEl.offsetHeight,
+    windowWidth: pageEl.offsetWidth,
+    windowHeight: pageEl.offsetHeight
   };
 
   /** Function html2canvas comes from a library html2canvas which is included in the index.html */
@@ -62,10 +69,7 @@ export async function generateImages() {
 
   const paperContentEl = document.querySelector('.page-a .paper-content');
   const scrollHeight = paperContentEl.scrollHeight;
-  
-  // Use different heights for mobile vs desktop
-  const isMobile = window.innerWidth <= 768;
-  const clientHeight = isMobile ? 514 : 560;
+  const clientHeight = 514; // Standard A4 content height
 
   const totalPages = Math.ceil(scrollHeight / clientHeight);
 
