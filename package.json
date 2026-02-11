@@ -34,10 +34,5 @@
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
     "serve": "^11.3.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run prettier && eslint . --fix && npm run eslint"
-    }
   }
 }
