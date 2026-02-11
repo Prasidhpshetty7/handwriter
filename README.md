@@ -1,13 +1,7 @@
 # Handwriter
 
 <p align="center">
-<b><a href="https://prasidhpshetty7.github.io/handwrriter/">🚀 Live Demo</a></b>
-</p>
-
-<p align="center">
-<img alt="GitHub License MIT" src="https://img.shields.io/github/license/prasidhpshetty7/handwrriter?style=for-the-badge&labelColor=black&logo=github" />
-<img alt="Contributions Welcome" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge&labelColor=black&logo=github" />
-<a href="https://twitter.com/shettyprasidh7"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/shettyprasidh7?style=for-the-badge&color=09f&labelColor=black&logo=twitter&label=@shettyprasidh7" /></a>
+<b><a href="https://txt.prasidhshetty.in">🚀 Live Demo - txt.prasidhshetty.in</a></b>
 </p>
 
 Transform your typed text into realistic handwriting images. Customize fonts, paper sizes, spacing, colors, and add drawings. Perfect for assignments, notes, and documents.
@@ -24,29 +18,29 @@ Transform your typed text into realistic handwriting images. Customize fonts, pa
 
 ## 🌠 Preview
 
-<img width="600" alt="Sample handwriting output" src="sample1.jpeg" />
+<img width="600" alt="Sample handwriting output" src="sample.jpeg" />
 
 ## 🚀 Quick Start
 
 ### Online Use
-Visit [https://prasidhpshetty7.github.io/handwrriter/](https://prasidhpshetty7.github.io/handwrriter/) and start converting text immediately.
+Visit **[txt.prasidhshetty.in](https://txt.prasidhshetty.in)** and start converting text immediately.
 
 ### Deploy Your Own
 
 #### Deploy to Vercel
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/prasidhpshetty7/handwrriter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Prasidhpshetty7/handwriter)
 
 #### Deploy to GitHub Pages
 1. Fork this repository
 2. Go to Settings → Pages
 3. Select branch (main) and deploy
-4. Your site will be live at `https://yourusername.github.io/handwrriter/`
+4. Your site will be live at `https://yourusername.github.io/handwriter/`
 
 ### Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/prasidhpshetty7/handwrriter.git
-cd handwrriter
+git clone https://github.com/Prasidhpshetty7/handwriter.git
+cd handwriter
 
 # Install dependencies
 npm install
@@ -88,7 +82,7 @@ Contributions are welcome! Here's how you can help:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-Report bugs or suggest features in the [Issues](https://github.com/prasidhpshetty7/handwrriter/issues) section.
+Report bugs or suggest features in the [Issues](https://github.com/Prasidhpshetty7/handwriter/issues) section.
 
 ## 📝 License
 
@@ -104,7 +98,7 @@ This project was inspired by [Saurabh Daware's text-to-handwriting](https://gith
 
 - Website: [prasidhshetty.in](https://prasidhshetty.in)
 - Twitter: [@shettyprasidh7](https://twitter.com/shettyprasidh7)
-- GitHub: [@prasidhpshetty7](https://github.com/prasidhpshetty7)
+- GitHub: [@Prasidhpshetty7](https://github.com/Prasidhpshetty7)
 
 ---
 
