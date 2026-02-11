@@ -62,7 +62,10 @@ export async function generateImages() {
 
   const paperContentEl = document.querySelector('.page-a .paper-content');
   const scrollHeight = paperContentEl.scrollHeight;
-  const clientHeight = 514; // Standard A4 content height
+  
+  // Use a slightly larger height to fill pages better
+  // 514 was leaving too much empty space at bottom
+  const clientHeight = 520;
 
   const totalPages = Math.ceil(scrollHeight / clientHeight);
 
@@ -85,13 +88,15 @@ export async function generateImages() {
 
       while (
         paperContentEl.scrollHeight <= clientHeight &&
-        wordCount <= splitContent.length
+        wordCount < splitContent.length
       ) {
         wordString = wordArray.join(' ');
         wordArray.push(splitContent[wordCount]);
         paperContentEl.innerHTML = wordArray.join(' ');
         wordCount++;
       }
+      
+      // Use the last valid content that fit
       paperContentEl.innerHTML = wordString;
       wordCount--;
       pageEl.scrollTo(0, 0);
