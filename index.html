@@ -84,10 +84,10 @@
     <link rel="stylesheet" href="./css/features.css?v=8" />
   </head>
 
-  <body>
+  <body class="dark">
     <main>
       <button
-        aria-label="Activate Dark Mode"
+        aria-label="Activate Light Mode"
         title="Toggle Dark Mode"
         aria-pressed="false"
         onclick="toggleTheme(this)"
@@ -106,8 +106,8 @@
             src="images/moon.svg"
         /></span>
       </button>
-      <h1 style="background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Handwriter</h1>
-      <p style="font-size: 1.2rem; margin-top: -10px; opacity: 0.8;">Transform your text into beautiful handwriting</p>
+      <h1 style="background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: #a78bfa;">Handwriter</h1>
+      <p style="font-size: 1.2rem; margin-top: -10px; opacity: 0.8; color: var(--font-color-primary);">Transform your text into beautiful handwriting</p>
       <section class="generate-image-section">
         <br /><br />
         <form id="generate-image-form">
