@@ -411,9 +411,10 @@ body.dark .github-corner {
 .output {
   width: 100%;
   padding: 30px;
-  white-space: nowrap;
+  white-space: normal;
   overflow-x: auto;
   border: 1px solid var(--elevation-background);
+  text-align: center;
 }
 .output .close-button {
   position: absolute;
@@ -455,7 +456,9 @@ body.dark .github-corner {
 }
 .output img {
   width: 300px;
-  margin: 0px 10px;
+  margin: 0px auto;
+  display: block;
+  margin-bottom: 20px;
 }
 
 #faq p {
