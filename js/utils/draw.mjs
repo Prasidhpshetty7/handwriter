@@ -23,7 +23,7 @@ ctx.lineCap = 'round';
 ctx.lineJoin = 'round';
 
 // Set initial cursor
-canvas.style.cursor = 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\'><text y=\'20\' font-size=\'20\'>✍️</text></svg>") 0 24, auto';
+canvas.style.cursor = 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 32 32\'><text x=\'2\' y=\'28\' font-size=\'24\'>✍️</text></svg>") 4 28, auto';
 
 // Get canvas position relative to viewport
 function getCanvasCoordinates(e) {
@@ -187,9 +187,9 @@ document.querySelectorAll('.tool-btn').forEach(btn => {
 // Update cursor based on selected tool
 function updateCursor(tool) {
   const cursors = {
-    'pen': 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\'><text y=\'20\' font-size=\'20\'>✍️</text></svg>") 0 24, auto',
-    'eraser': 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\'><text y=\'20\' font-size=\'20\'>🧹</text></svg>") 12 12, auto',
-    'spray': 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\'><text y=\'20\' font-size=\'20\'>💨</text></svg>") 12 12, auto',
+    'pen': 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 32 32\'><text x=\'2\' y=\'28\' font-size=\'24\'>✍️</text></svg>") 4 28, auto',
+    'eraser': 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 32 32\'><text x=\'4\' y=\'24\' font-size=\'24\'>🧹</text></svg>") 16 16, auto',
+    'spray': 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 32 32\'><text x=\'4\' y=\'24\' font-size=\'24\'>💨</text></svg>") 16 16, auto',
     'line': 'crosshair',
     'rectangle': 'crosshair',
     'circle': 'crosshair',
