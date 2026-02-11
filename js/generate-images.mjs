@@ -63,8 +63,9 @@ export async function generateImages() {
   const paperContentEl = document.querySelector('.page-a .paper-content');
   const scrollHeight = paperContentEl.scrollHeight;
   
-  // Increased to fill pages better - was 514, now 540 to use more space
-  const clientHeight = 540;
+  // Use different heights for mobile vs desktop
+  const isMobile = window.innerWidth <= 768;
+  const clientHeight = isMobile ? 514 : 560;
 
   const totalPages = Math.ceil(scrollHeight / clientHeight);
 
