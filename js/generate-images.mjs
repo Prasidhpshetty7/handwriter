@@ -31,14 +31,7 @@ async function convertDIVToImage() {
     scrollX: 0,
     scrollY: -window.scrollY,
     scale: document.querySelector('#resolution').value,
-    useCORS: true,
-    allowTaint: true,
-    backgroundColor: '#ffffff',
-    logging: false,
-    width: pageEl.offsetWidth,
-    height: pageEl.offsetHeight,
-    windowWidth: pageEl.offsetWidth,
-    windowHeight: pageEl.offsetHeight
+    useCORS: true
   };
 
   /** Function html2canvas comes from a library html2canvas which is included in the index.html */
