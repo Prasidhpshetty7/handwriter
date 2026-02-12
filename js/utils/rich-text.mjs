@@ -22,7 +22,8 @@ export function updateCurrentStyle(property, value) {
 
 // Get current style as CSS string
 function getCurrentStyleString() {
-  let style = `font-family: ${currentStyle.fontFamily}; color: ${currentStyle.color}; font-size: ${currentStyle.fontSize};`;
+  // Don't include font-size in inline styles - let it inherit from page-level CSS
+  let style = `font-family: ${currentStyle.fontFamily}; color: ${currentStyle.color};`;
   
   // Explicitly set font-weight
   if (currentStyle.bold) {
@@ -87,7 +88,8 @@ function wrapExistingText() {
   if (existingText && !paperContentEl.querySelector('span')) {
     // Only wrap if there's text and it's not already wrapped
     const span = document.createElement('span');
-    span.setAttribute('style', "font-family: 'Homemade Apple', cursive; color: #000f55; font-size: 10pt;");
+    // Don't set font-size, let it inherit from page CSS
+    span.setAttribute('style', "font-family: 'Homemade Apple', cursive; color: #000f55;");
     span.textContent = existingText;
     paperContentEl.innerHTML = '';
     paperContentEl.appendChild(span);
