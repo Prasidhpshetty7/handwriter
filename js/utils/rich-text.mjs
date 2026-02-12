@@ -39,28 +39,8 @@ const paperContentEl = document.querySelector('.page-a .paper-content');
 export function updateCurrentStyle(property, value) {
   currentStyle[property] = value;
   
-  // If font changed, update the UI settings to match font metrics
-  if (property === 'fontFamily' && fontMetrics[value]) {
-    const metrics = fontMetrics[value];
-    
-    // Update font size input
-    const fontSizeInput = document.querySelector('#font-size');
-    if (fontSizeInput) {
-      fontSizeInput.value = parseFloat(metrics.fontSize);
-    }
-    
-    // Update vertical position input
-    const topPaddingInput = document.querySelector('#top-padding');
-    if (topPaddingInput) {
-      topPaddingInput.value = parseFloat(metrics.verticalOffset) + 8; // 8 is default
-    }
-    
-    // Update letter spacing input
-    const letterSpacingInput = document.querySelector('#letter-spacing');
-    if (letterSpacingInput) {
-      letterSpacingInput.value = parseFloat(metrics.letterSpacing);
-    }
-  }
+  // Don't auto-update UI inputs - let user control them manually
+  // The font metrics are only used for the inline styles of new text
 }
 
 function getCurrentStyleString() {
