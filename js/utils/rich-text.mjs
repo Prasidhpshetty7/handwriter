@@ -1,6 +1,30 @@
 /**
- * Rich Text Formatting System - Baseline Aligned Version
+ * Rich Text Formatting System - Font-Specific Metrics
  */
+
+// Pre-calibrated settings for each font to align with lines
+const fontMetrics = {
+  "'Homemade Apple', cursive": {
+    fontSize: '10pt',
+    verticalOffset: '0px',
+    letterSpacing: '0px'
+  },
+  "'Caveat', cursive": {
+    fontSize: '13pt',
+    verticalOffset: '-2px',
+    letterSpacing: '0px'
+  },
+  "'Liu Jian Mao Cao', cursive": {
+    fontSize: '13pt',
+    verticalOffset: '-1px',
+    letterSpacing: '0px'
+  },
+  "Hindi_Font": {
+    fontSize: '10pt',
+    verticalOffset: '0px',
+    letterSpacing: '0px'
+  }
+};
 
 let currentStyle = {
   fontFamily: "'Homemade Apple', cursive",
@@ -14,11 +38,35 @@ const paperContentEl = document.querySelector('.page-a .paper-content');
 
 export function updateCurrentStyle(property, value) {
   currentStyle[property] = value;
+  
+  // If font changed, update the UI settings to match font metrics
+  if (property === 'fontFamily' && fontMetrics[value]) {
+    const metrics = fontMetrics[value];
+    
+    // Update font size input
+    const fontSizeInput = document.querySelector('#font-size');
+    if (fontSizeInput) {
+      fontSizeInput.value = parseFloat(metrics.fontSize);
+    }
+    
+    // Update vertical position input
+    const topPaddingInput = document.querySelector('#top-padding');
+    if (topPaddingInput) {
+      topPaddingInput.value = parseFloat(metrics.verticalOffset) + 8; // 8 is default
+    }
+    
+    // Update letter spacing input
+    const letterSpacingInput = document.querySelector('#letter-spacing');
+    if (letterSpacingInput) {
+      letterSpacingInput.value = parseFloat(metrics.letterSpacing);
+    }
+  }
 }
 
 function getCurrentStyleString() {
-  // Force baseline alignment and consistent line-height
-  let style = `font-family: ${currentStyle.fontFamily}; color: ${currentStyle.color}; vertical-align: baseline; display: inline;`;
+  const metrics = fontMetrics[currentStyle.fontFamily] || fontMetrics["'Homemade Apple', cursive"];
+  
+  let style = `font-family: ${currentStyle.fontFamily}; color: ${currentStyle.color}; font-size: ${metrics.fontSize}; position: relative; top: ${metrics.verticalOffset}; letter-spacing: ${metrics.letterSpacing};`;
   
   if (currentStyle.bold) {
     style += ' font-weight: bold;';
@@ -46,7 +94,6 @@ export function initRichTextEditor() {
   
   paperContentEl.setAttribute('contenteditable', 'true');
   
-  // Wrap existing text
   wrapExistingText();
   
   let currentSpan = null;
@@ -113,7 +160,8 @@ function wrapExistingText() {
   const existingText = paperContentEl.textContent.trim();
   if (existingText && !paperContentEl.querySelector('span')) {
     const span = document.createElement('span');
-    span.setAttribute('style', "font-family: 'Homemade Apple', cursive; color: #000f55; vertical-align: baseline; display: inline;");
+    const metrics = fontMetrics["'Homemade Apple', cursive"];
+    span.setAttribute('style', `font-family: 'Homemade Apple', cursive; color: #000f55; font-size: ${metrics.fontSize}; position: relative; top: ${metrics.verticalOffset};`);
     span.textContent = existingText;
     paperContentEl.innerHTML = '';
     paperContentEl.appendChild(span);
@@ -125,3 +173,4 @@ if (document.readyState === 'loading') {
 } else {
   initRichTextEditor();
 }
+
