@@ -46,24 +46,25 @@ export function updateCurrentStyle(property, value) {
 function getCurrentStyleString() {
   const metrics = fontMetrics[currentStyle.fontFamily] || fontMetrics["'Homemade Apple', cursive"];
   
-  let style = `font-family: ${currentStyle.fontFamily}; color: ${currentStyle.color}; font-size: ${metrics.fontSize}; position: relative; top: ${metrics.verticalOffset}; letter-spacing: ${metrics.letterSpacing};`;
+  // Use !important to prevent any external CSS from affecting these styles
+  let style = `font-family: ${currentStyle.fontFamily} !important; color: ${currentStyle.color} !important; font-size: ${metrics.fontSize} !important; position: relative !important; top: ${metrics.verticalOffset} !important; letter-spacing: ${metrics.letterSpacing} !important; line-height: 1.5em !important;`;
   
   if (currentStyle.bold) {
-    style += ' font-weight: bold;';
+    style += ' font-weight: bold !important;';
   } else {
-    style += ' font-weight: normal;';
+    style += ' font-weight: normal !important;';
   }
   
   if (currentStyle.italic) {
-    style += ' font-style: italic;';
+    style += ' font-style: italic !important;';
   } else {
-    style += ' font-style: normal;';
+    style += ' font-style: normal !important;';
   }
   
   if (currentStyle.underline) {
-    style += ' text-decoration: underline;';
+    style += ' text-decoration: underline !important;';
   } else {
-    style += ' text-decoration: none;';
+    style += ' text-decoration: none !important;';
   }
   
   return style;
@@ -141,7 +142,7 @@ function wrapExistingText() {
   if (existingText && !paperContentEl.querySelector('span')) {
     const span = document.createElement('span');
     const metrics = fontMetrics["'Homemade Apple', cursive"];
-    span.setAttribute('style', `font-family: 'Homemade Apple', cursive; color: #000f55; font-size: ${metrics.fontSize}; position: relative; top: ${metrics.verticalOffset};`);
+    span.setAttribute('style', `font-family: 'Homemade Apple', cursive !important; color: #000f55 !important; font-size: ${metrics.fontSize} !important; position: relative !important; top: ${metrics.verticalOffset} !important; line-height: 1.5em !important;`);
     span.textContent = existingText;
     paperContentEl.innerHTML = '';
     paperContentEl.appendChild(span);

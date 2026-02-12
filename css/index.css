@@ -377,6 +377,7 @@ body.dark .github-corner {
 .paper-content {
   margin: 10px;
   width: 100%;
+  /* Don't set font properties here - let spans control everything */
 }
 .page-a.lines .paper-content {
   background-image: linear-gradient(#999 0.05em, transparent 0.1em);
