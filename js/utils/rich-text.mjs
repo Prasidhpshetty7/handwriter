@@ -24,16 +24,25 @@ export function updateCurrentStyle(property, value) {
 function getCurrentStyleString() {
   let style = `font-family: ${currentStyle.fontFamily}; color: ${currentStyle.color}; font-size: ${currentStyle.fontSize};`;
   
+  // Explicitly set font-weight
   if (currentStyle.bold) {
     style += ' font-weight: bold;';
+  } else {
+    style += ' font-weight: normal;';
   }
   
+  // Explicitly set font-style
   if (currentStyle.italic) {
     style += ' font-style: italic;';
+  } else {
+    style += ' font-style: normal;';
   }
   
+  // Explicitly set text-decoration
   if (currentStyle.underline) {
     style += ' text-decoration: underline;';
+  } else {
+    style += ' text-decoration: none;';
   }
   
   return style;
@@ -45,6 +54,9 @@ export function initRichTextEditor() {
   
   // Make sure contenteditable is enabled
   paperContentEl.setAttribute('contenteditable', 'true');
+  
+  // Wrap existing plain text in a span with default blue color
+  wrapExistingText();
   
   // Track typing
   let typingTimer;
@@ -67,6 +79,19 @@ export function initRichTextEditor() {
       insertStyledText('\n');
     }
   });
+}
+
+// Wrap existing plain text with default style
+function wrapExistingText() {
+  const existingText = paperContentEl.textContent.trim();
+  if (existingText && !paperContentEl.querySelector('span')) {
+    // Only wrap if there's text and it's not already wrapped
+    const span = document.createElement('span');
+    span.setAttribute('style', "font-family: 'Homemade Apple', cursive; color: #000f55; font-size: 10pt;");
+    span.textContent = existingText;
+    paperContentEl.innerHTML = '';
+    paperContentEl.appendChild(span);
+  }
 }
 
 // Insert text with current styling
