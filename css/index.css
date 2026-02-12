@@ -373,6 +373,13 @@ body.dark .github-corner {
   margin: 10px;
   width: 100%;
 }
+
+/* Force consistent line height for mixed fonts */
+.paper-content span {
+  line-height: 1.5em !important;
+  vertical-align: baseline !important;
+}
+
 .page-a.lines .paper-content {
   background-image: linear-gradient(#999 0.05em, transparent 0.1em);
   background-color: unset !important;
