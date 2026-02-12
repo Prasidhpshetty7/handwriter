@@ -9,6 +9,7 @@ import {
   deleteAll
 } from './generate-images.mjs';
 import { setInkColor, toggleDrawCanvas } from './utils/draw.mjs';
+import { updateCurrentStyle } from './utils/rich-text.mjs';
 
 /**
  *
@@ -39,8 +40,10 @@ const EVENT_MAP = {
   },
   '#handwriting-font': {
     on: 'change',
-    action: (e) =>
-      document.body.style.setProperty('--handwriting-font', e.target.value)
+    action: (e) => {
+      document.body.style.setProperty('--handwriting-font', e.target.value);
+      updateCurrentStyle('fontFamily', e.target.value);
+    }
   },
   '#font-size': {
     on: 'change',
@@ -49,6 +52,7 @@ const EVENT_MAP = {
         alert('Font-size is too big try upto 30');
       } else {
         setTextareaStyle('fontSize', e.target.value + 'pt');
+        updateCurrentStyle('fontSize', e.target.value + 'pt');
         e.preventDefault();
       }
     }
@@ -91,6 +95,7 @@ const EVENT_MAP = {
     action: (e) => {
       document.body.style.setProperty('--ink-color', e.target.value);
       setInkColor(e.target.value);
+      updateCurrentStyle('color', e.target.value);
     }
   },
   '#paper-margin-toggle': {
@@ -118,6 +123,7 @@ const EVENT_MAP = {
     action: (e) => {
       const statusEl = e.target.parentElement.parentElement.querySelector('.status');
       statusEl.textContent = e.target.checked ? 'on' : 'off';
+      updateCurrentStyle('bold', e.target.checked);
     }
   },
   '#text-italic-toggle': {
@@ -125,6 +131,7 @@ const EVENT_MAP = {
     action: (e) => {
       const statusEl = e.target.parentElement.parentElement.querySelector('.status');
       statusEl.textContent = e.target.checked ? 'on' : 'off';
+      updateCurrentStyle('italic', e.target.checked);
     }
   },
   '#text-underline-toggle': {
@@ -132,6 +139,7 @@ const EVENT_MAP = {
     action: (e) => {
       const statusEl = e.target.parentElement.parentElement.querySelector('.status');
       statusEl.textContent = e.target.checked ? 'on' : 'off';
+      updateCurrentStyle('underline', e.target.checked);
     }
   },
   '#draw-diagram-button': {
