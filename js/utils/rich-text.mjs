@@ -59,17 +59,51 @@ export function initRichTextEditor() {
   // Wrap existing plain text in a span with default blue color
   wrapExistingText();
   
-  // Track typing
-  let typingTimer;
-  let lastLength = paperContentEl.textContent.length;
+  // Track current typing session
+  let currentSpan = null;
+  let lastStyleString = getCurrentStyleString();
   
   paperContentEl.addEventListener('keypress', (e) => {
-    // When user types a character, wrap it in a span with current style
-    if (e.key.length === 1) { // Regular character (not Enter, Backspace, etc.)
+    // When user types a character
+    if (e.key.length === 1) {
       e.preventDefault();
       
-      // Insert styled text
-      insertStyledText(e.key);
+      const currentStyleString = getCurrentStyleString();
+      
+      // Check if style changed or we need a new span
+      if (!currentSpan || currentStyleString !== lastStyleString) {
+        // Create new span with current style
+        currentSpan = document.createElement('span');
+        currentSpan.setAttribute('style', currentStyleString);
+        
+        // Insert at cursor position
+        const selection = window.getSelection();
+        if (selection.rangeCount) {
+          const range = selection.getRangeAt(0);
+          range.deleteContents();
+          range.insertNode(currentSpan);
+          
+          // Move cursor inside the span
+          range.setStart(currentSpan, 0);
+          range.collapse(true);
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+        
+        lastStyleString = currentStyleString;
+      }
+      
+      // Add character to current span
+      const textNode = document.createTextNode(e.key);
+      currentSpan.appendChild(textNode);
+      
+      // Move cursor after the character
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.setStartAfter(textNode);
+      range.collapse(true);
+      selection.removeAllRanges();
+      selection.addRange(range);
     }
   });
   
@@ -77,7 +111,45 @@ export function initRichTextEditor() {
     // Handle Enter key
     if (e.key === 'Enter') {
       e.preventDefault();
-      insertStyledText('\n');
+      
+      // Insert line break
+      const br = document.createElement('br');
+      const selection = window.getSelection();
+      if (selection.rangeCount) {
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(br);
+        range.setStartAfter(br);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      
+      // Reset current span so next text creates a new span
+      currentSpan = null;
+    }
+    
+    // Handle Space - continue in same span
+    if (e.key === ' ') {
+      // Let default behavior happen, but ensure we're in a span
+      if (!currentSpan) {
+        e.preventDefault();
+        const currentStyleString = getCurrentStyleString();
+        currentSpan = document.createElement('span');
+        currentSpan.setAttribute('style', currentStyleString);
+        
+        const selection = window.getSelection();
+        if (selection.rangeCount) {
+          const range = selection.getRangeAt(0);
+          range.insertNode(currentSpan);
+          range.setStart(currentSpan, 0);
+          range.collapse(true);
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+        
+        lastStyleString = currentStyleString;
+      }
     }
   });
 }
@@ -94,40 +166,6 @@ function wrapExistingText() {
     paperContentEl.innerHTML = '';
     paperContentEl.appendChild(span);
   }
-}
-
-// Insert text with current styling
-function insertStyledText(text) {
-  const selection = window.getSelection();
-  if (!selection.rangeCount) return;
-  
-  const range = selection.getRangeAt(0);
-  range.deleteContents();
-  
-  if (text === '\n') {
-    // Insert line break
-    const br = document.createElement('br');
-    range.insertNode(br);
-    
-    // Move cursor after the br
-    range.setStartAfter(br);
-    range.setEndAfter(br);
-  } else {
-    // Create span with current style
-    const span = document.createElement('span');
-    span.setAttribute('style', getCurrentStyleString());
-    span.textContent = text;
-    
-    range.insertNode(span);
-    
-    // Move cursor after the inserted text
-    range.setStartAfter(span);
-    range.setEndAfter(span);
-  }
-  
-  range.collapse(false);
-  selection.removeAllRanges();
-  selection.addRange(range);
 }
 
 // Initialize on load
