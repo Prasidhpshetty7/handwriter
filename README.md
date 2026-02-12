@@ -9,16 +9,19 @@ Transform your typed text into realistic handwriting images. Customize fonts, pa
 ## ✨ Features
 
 - **Custom Handwriting Fonts** - Upload your own handwriting font or choose from built-in options
+- **Multiple Fonts & Colors in Same Page** - Mix different fonts, colors, and styles (bold, italic, underline) in a single document
 - **Multiple Paper Sizes** - A4, Fiction Novel, Digest, Trade Paperback, US Letter
-- **Advanced Drawing Tool** - Draw diagrams with pen, eraser, shapes, spray, and more
+- **Advanced Drawing Tool** - Draw diagrams with pen, eraser, shapes, spray, and more with full touch support
 - **Full Customization** - Adjust font size, ink color, spacing, margins, and line styles
+- **Text Style Options** - Apply bold, italic, and underline formatting to specific text segments
 - **Multiple Export Options** - Download as individual images or combined PDF
-- **Dark Mode** - Beautiful dark interface for comfortable use
+- **Dark Mode** - Beautiful dark interface for comfortable use (default theme)
+- **Fully Responsive** - Works perfectly on desktop, tablets, and mobile devices
 - **Real-time Preview** - See changes instantly before generating
 
 ## 🌠 Preview
 
-<img width="600" alt="Sample handwriting output" src="sample.jpeg" />
+<img width="600" alt="Sample handwriting output" src="sample1.jpeg" />
 
 ## 🚀 Quick Start
 
@@ -55,14 +58,25 @@ npm run dev
 
 1. **Enter Text** - Type or paste your text in the input area
 2. **Customize** - Adjust font, size, spacing, paper size, and colors
-3. **Add Drawings** (Optional) - Click "Draw" to add diagrams or illustrations
-4. **Generate** - Click "Generate Image" to create handwriting pages
-5. **Download** - Save individual images or download all as PDF
+3. **Mix Styles** - Change fonts, colors, or apply bold/italic/underline at any point while typing
+   - Each text segment keeps its own formatting
+   - Old text remains unchanged when you modify settings
+   - Create documents with multiple fonts and colors on the same page
+4. **Add Drawings** (Optional) - Click "Draw" to add diagrams or illustrations
+5. **Generate** - Click "Generate Image" to create handwriting pages
+6. **Download** - Save individual images or download all as PDF
 
 ### Upload Your Own Handwriting
 1. Create a font from your handwriting using [Calligraphr](https://www.calligraphr.com/en/)
 2. Upload the .ttf or .otf file using "Upload your handwriting font" button
 3. Your text will now appear in your personal handwriting style
+
+### Using Multiple Fonts and Styles
+1. Type some text with the current font and color
+2. Change the font, color, or toggle bold/italic/underline
+3. Continue typing - new text uses the new settings
+4. Previously typed text keeps its original formatting
+5. Mix as many different styles as you want on the same page
 
 ## 🛠️ Built With
 
