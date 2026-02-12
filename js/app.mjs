@@ -113,6 +113,27 @@ const EVENT_MAP = {
       }
     }
   },
+  '#text-bold-toggle': {
+    on: 'change',
+    action: (e) => {
+      const statusEl = e.target.parentElement.parentElement.querySelector('.status');
+      statusEl.textContent = e.target.checked ? 'on' : 'off';
+    }
+  },
+  '#text-italic-toggle': {
+    on: 'change',
+    action: (e) => {
+      const statusEl = e.target.parentElement.parentElement.querySelector('.status');
+      statusEl.textContent = e.target.checked ? 'on' : 'off';
+    }
+  },
+  '#text-underline-toggle': {
+    on: 'change',
+    action: (e) => {
+      const statusEl = e.target.parentElement.parentElement.querySelector('.status');
+      statusEl.textContent = e.target.checked ? 'on' : 'off';
+    }
+  },
   '#draw-diagram-button': {
     on: 'click',
     action: () => {
