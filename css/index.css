@@ -378,6 +378,15 @@ body.dark .github-corner {
 .paper-content span {
   line-height: 1.5em !important;
   vertical-align: baseline !important;
+  font-size: inherit !important;
+}
+
+/* Normalize font metrics to prevent drift */
+.paper-content {
+  font-size: 10pt;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .page-a.lines .paper-content {
