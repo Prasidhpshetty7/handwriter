@@ -75,10 +75,29 @@ function formatText(event) {
 
 function addPaperFromFile(file) {
   const tmppath = URL.createObjectURL(file);
+  
+  // Apply background to the page element
   pageEl.style.backgroundImage = `url(${tmppath})`;
-  pageEl.style.backgroundSize = 'cover';
+  pageEl.style.backgroundSize = '100% 100%'; // Stretch to fit exact page dimensions
   pageEl.style.backgroundPosition = 'center';
   pageEl.style.backgroundRepeat = 'no-repeat';
+  
+  // Remove default white background to show paper texture
+  pageEl.style.backgroundColor = 'transparent';
+  
+  // Ensure paper content area is transparent so background shows through
+  const paperContentEl = document.querySelector('.page-a .paper-content');
+  if (paperContentEl) {
+    paperContentEl.style.backgroundColor = 'transparent';
+  }
+  
+  // Remove lines if they exist (paper image should have its own lines)
+  const hasLines = pageEl.classList.contains('lines');
+  if (hasLines) {
+    paperContentEl.style.backgroundImage = 'none';
+  }
+  
+  console.log('Paper background applied successfully');
 }
 
 export { isMobile, addFontFromFile, createPDF, formatText, addPaperFromFile };
