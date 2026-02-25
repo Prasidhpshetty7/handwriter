@@ -21,7 +21,7 @@ Transform your typed text into realistic handwriting images. Customize fonts, pa
 
 ## 🌠 Preview
 
-<img width="600" alt="Sample handwriting output" src="sample1.jpeg" />
+<img width="600" alt="Sample handwriting output" src="sample.png" />
 
 ## 🚀 Quick Start
 
