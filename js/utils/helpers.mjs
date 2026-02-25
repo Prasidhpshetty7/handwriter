@@ -76,6 +76,9 @@ function formatText(event) {
 function addPaperFromFile(file) {
   const tmppath = URL.createObjectURL(file);
   pageEl.style.backgroundImage = `url(${tmppath})`;
+  pageEl.style.backgroundSize = 'cover';
+  pageEl.style.backgroundPosition = 'center';
+  pageEl.style.backgroundRepeat = 'no-repeat';
 }
 
 export { isMobile, addFontFromFile, createPDF, formatText, addPaperFromFile };
