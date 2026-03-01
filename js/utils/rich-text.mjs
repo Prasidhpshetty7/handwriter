@@ -120,7 +120,23 @@ function handleCharacterInput(e) {
   // Create span with formatting
   const span = document.createElement('span');
   applyStylesToSpan(span);
-  span.textContent = e.key;
+  
+  // Handle spaces properly - use non-breaking space for multiple spaces
+  if (e.key === ' ') {
+    // Check if previous character was also a space
+    const prevNode = range.startContainer;
+    const prevText = prevNode.textContent || '';
+    const prevChar = prevText[range.startOffset - 1];
+    
+    if (prevChar === ' ' || prevChar === '\u00A0') {
+      // Use non-breaking space for multiple spaces
+      span.innerHTML = '&nbsp;';
+    } else {
+      span.textContent = ' ';
+    }
+  } else {
+    span.textContent = e.key;
+  }
   
   range.insertNode(span);
   
@@ -129,6 +145,8 @@ function handleCharacterInput(e) {
   range.setEndAfter(span);
   selection.removeAllRanges();
   selection.addRange(range);
+  
+  console.log('Character inserted:', e.key, 'Bold:', currentFormat.bold);
 }
 
 /**
