@@ -232,8 +232,16 @@ for (const eventSelector in EVENT_MAP) {
 
 /**
  * This makes toggles, accessible.
+ * Exclude text style toggles as they have their own handlers
  */
 document.querySelectorAll('.switch-toggle input').forEach((toggleInput) => {
+  // Skip text style toggles - they have their own handlers
+  if (toggleInput.id === 'text-bold-toggle' || 
+      toggleInput.id === 'text-italic-toggle' || 
+      toggleInput.id === 'text-underline-toggle') {
+    return;
+  }
+  
   toggleInput.addEventListener('change', (e) => {
     if (toggleInput.checked) {
       document.querySelector(
