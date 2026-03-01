@@ -118,19 +118,28 @@ const EVENT_MAP = {
   '#text-bold-toggle': {
     on: 'change',
     action: (e) => {
+      const statusEl = e.target.parentElement.parentElement.querySelector('.status');
+      statusEl.textContent = e.target.checked ? 'on' : 'off';
       updateFormat('bold', e.target.checked);
+      console.log('Bold toggled:', e.target.checked);
     }
   },
   '#text-italic-toggle': {
     on: 'change',
     action: (e) => {
+      const statusEl = e.target.parentElement.parentElement.querySelector('.status');
+      statusEl.textContent = e.target.checked ? 'on' : 'off';
       updateFormat('italic', e.target.checked);
+      console.log('Italic toggled:', e.target.checked);
     }
   },
   '#text-underline-toggle': {
     on: 'change',
     action: (e) => {
+      const statusEl = e.target.parentElement.parentElement.querySelector('.status');
+      statusEl.textContent = e.target.checked ? 'on' : 'off';
       updateFormat('underline', e.target.checked);
+      console.log('Underline toggled:', e.target.checked);
     }
   },
   '#draw-diagram-button': {

@@ -19,7 +19,8 @@ const paperContent = document.querySelector('.page-a .paper-content');
  */
 export function updateFormat(property, value) {
   currentFormat[property] = value;
-  console.log('Format updated:', currentFormat);
+  console.log('Format updated:', property, '=', value);
+  console.log('Current format state:', currentFormat);
 }
 
 /**
@@ -76,6 +77,8 @@ function applyStylesToSpan(span) {
   if (currentFormat.color) {
     styles.push(`color: ${currentFormat.color}`);
   }
+  
+  console.log('Applying styles:', styles.join('; '));
   
   if (styles.length > 0) {
     span.setAttribute('style', styles.join('; '));
