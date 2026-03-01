@@ -9,6 +9,7 @@ import {
   deleteAll
 } from './generate-images.mjs';
 import { setInkColor, toggleDrawCanvas } from './utils/draw.mjs';
+import { updateFormat, initRichTextEditor } from './utils/rich-text.mjs';
 
 /**
  *
@@ -91,6 +92,7 @@ const EVENT_MAP = {
     action: (e) => {
       document.body.style.setProperty('--ink-color', e.target.value);
       setInkColor(e.target.value);
+      updateFormat('color', e.target.value);
     }
   },
   '#paper-margin-toggle': {
@@ -111,6 +113,24 @@ const EVENT_MAP = {
       } else {
         pageEl.classList.add('lines');
       }
+    }
+  },
+  '#text-bold-toggle': {
+    on: 'change',
+    action: (e) => {
+      updateFormat('bold', e.target.checked);
+    }
+  },
+  '#text-italic-toggle': {
+    on: 'change',
+    action: (e) => {
+      updateFormat('italic', e.target.checked);
+    }
+  },
+  '#text-underline-toggle': {
+    on: 'change',
+    action: (e) => {
+      updateFormat('underline', e.target.checked);
     }
   },
   '#draw-diagram-button': {
@@ -224,3 +244,6 @@ document.querySelectorAll('.switch-toggle input').forEach((toggleInput) => {
  * GitHub Contributors section removed since repo is not yet launched
  * Will be added once the repository is live and has contributors
  */
+
+// Initialize rich text editor
+initRichTextEditor();
