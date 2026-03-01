@@ -9,7 +9,6 @@ import {
   deleteAll
 } from './generate-images.mjs';
 import { setInkColor, toggleDrawCanvas } from './utils/draw.mjs';
-import { updateCurrentStyle } from './utils/rich-text.mjs';
 
 /**
  *
@@ -40,10 +39,8 @@ const EVENT_MAP = {
   },
   '#handwriting-font': {
     on: 'change',
-    action: (e) => {
-      document.body.style.setProperty('--handwriting-font', e.target.value);
-      updateCurrentStyle('fontFamily', e.target.value);
-    }
+    action: (e) =>
+      document.body.style.setProperty('--handwriting-font', e.target.value)
   },
   '#font-size': {
     on: 'change',
@@ -94,7 +91,6 @@ const EVENT_MAP = {
     action: (e) => {
       document.body.style.setProperty('--ink-color', e.target.value);
       setInkColor(e.target.value);
-      updateCurrentStyle('color', e.target.value);
     }
   },
   '#paper-margin-toggle': {
