@@ -90,7 +90,7 @@ const EVENT_MAP = {
   '#ink-color': {
     on: 'change',
     action: (e) => {
-      document.body.style.setProperty('--ink-color', e.target.value);
+      // Don't change the CSS variable - only update format for NEW text
       setInkColor(e.target.value);
       updateFormat('color', e.target.value);
     }

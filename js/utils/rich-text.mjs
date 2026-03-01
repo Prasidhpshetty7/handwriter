@@ -72,7 +72,8 @@ function applyStylesToSpan(span) {
     styles.push('text-decoration: underline');
   }
   
-  if (currentFormat.color && currentFormat.color !== '#000f55') {
+  // Always apply color as inline style
+  if (currentFormat.color) {
     styles.push(`color: ${currentFormat.color}`);
   }
   
@@ -104,14 +105,7 @@ export function initRichTextEditor() {
  * Handle character input with current formatting
  */
 function handleCharacterInput(e) {
-  // Check if any formatting is active
-  const hasFormatting = currentFormat.bold || 
-                       currentFormat.italic || 
-                       currentFormat.underline || 
-                       (currentFormat.color && currentFormat.color !== '#000f55');
-  
-  if (!hasFormatting) return; // Let default behavior handle it
-  
+  // Always apply formatting to wrap text in spans with explicit color
   e.preventDefault();
   
   const selection = window.getSelection();
